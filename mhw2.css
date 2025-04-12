@@ -181,7 +181,7 @@
   font-size: 14px;
   outline: none;
 }
-/* Placeholder più bianco e leggermente trasparente */
+
 .dropdown-content[data-dropdown-content="search"] input.search-input::placeholder {
   color: rgba(255, 255, 255, 0.8); 
   font-weight: 300;
