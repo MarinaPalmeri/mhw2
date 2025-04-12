@@ -1,0 +1,633 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;  
+    background-color: #f4f4f7;
+    color: #333;
+  }
+  
+  /* NAVBAR */
+.navbar {
+    background-color: rgba(22, 22, 22, 0.98);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 300px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-item > a {
+    color: #f5f5f7;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 0 10px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+  
+  .nav-item > a:hover {
+    opacity: 1;
+  }
+  
+.nav-icons {
+    position: absolute;
+    display: flex;
+    margin-left:900px;
+    gap: 15px;
+}
+
+.nav-item {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.5s ease;
+}
+
+.nav-item:hover::after {
+  width: 20px;
+}
+
+/*LOGO BAG*/
+#icona_bag img{
+    width: 28px;
+    height: 25px;
+    cursor: pointer;
+}
+/*LOGO RICERCA*/
+#icona_ricerca img{
+    width: 36px;
+    height: 24px;
+    cursor: pointer;
+}
+
+  /* DROPDOWN */
+  .dropdown-container {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(22, 22, 22);
+    border-bottom: 1px solid #d2d2d7;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 10; 
+    border-bottom: 0;
+ }
+  
+  .dropdown-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .dropdown-section h3 {
+    color: #787878;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+.dropdown-section ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+/*SCRITTE BIANCHE dentro navbar*/
+.dropdown-section ul li a {
+    color: #ffffff;
+    font-size: 23;
+
+}
+  
+.dropdown-section li a {
+    color: #1d1d1f;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 6px 0;
+    white-space: nowrap;
+}
+.dropdown-content h3 {
+    color:rgb(255, 255, 255)
+}
+.dropdown-content p{
+    color:rgb(255, 255, 255)
+}
+.search-input{
+    background-color: #c1c1c1;
+}
+
+[data-dropdown-content="search"] {
+    padding: 20px;
+    text-align: center;
+}
+[data-dropdown-content="bag"] {
+    padding: 20px;
+    width: 300px;
+    right: 20px;
+    left: auto;
+}
+
+/* STILE BARRA DI RICERCA */
+.dropdown-content[data-dropdown-content="search"] input.search-input {
+  background-color: rgba(22, 22, 22, 0.98);
+  border: 1px solid #444;
+  color: #fff;
+  padding: 12px 20px; 
+  width: 300px; 
+  border-radius: 20px; 
+  font-size: 14px;
+  outline: none;
+}
+/* Placeholder più bianco e leggermente trasparente */
+.dropdown-content[data-dropdown-content="search"] input.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.8); 
+  font-weight: 300;
+}
+  
+  /*LOGO APPLE*/
+  .apple-logo {
+    position: absolute;
+    top: 3px;
+    left: 240px;
+    width: 20;
+    height: auto;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  /*LOGO APPLE 2*/
+  img[src="icona_apple_colore.png"] {
+    width: 33px;
+    height: 20px;
+    margin-left: -7px; 
+  }
+  /*TOOLTIP*/
+[data-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  margin-bottom: 10px;
+}
+[data-tooltip]:hover::before {
+  opacity: 1;
+}
+  /* SEZIONE PRINCIPALE*/
+  .section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    margin-bottom: 20px;
+  }
+  #titolo_16pro {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  #sec_titolo_16pro {
+    font-size: 24px;
+    margin-bottom: 470px;
+    font-weight: 300;
+  }
+  #titolo_16 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  #sec_titolo_16 {
+    font-size: 24px;
+    margin-bottom: 470px;
+    font-weight: 300;
+  } 
+  #titolo_airpods {
+    font-size: 50px;
+    font-weight: 700;
+  }
+  #sec_titolo_airpods {
+    font-size: 24px;
+    font-weight: 300; 
+    margin-bottom: 40px;
+  }
+
+  /*IMMAGINI*/
+  #iphone16pro {
+    background-image:url("iphone16pro.jpg");
+  }
+    
+  #iphone16 {
+    background-image:url("Iphone16.png");
+  }
+    
+  #airpods {
+    background-image:url("AirPods4.jpg");
+  }
+  
+  .section .button {
+    background-color: rgb(14, 171, 223);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 40px;
+    transition: background-color 0.3s ease;
+  }
+
+  .section .button:hover {
+    background-color: #165463;
+  }
+  
+  /* SEZIONE BOX */
+  .products-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #f0f0f0;
+  }
+  
+  /* BOX EFFETTIVE */
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 570px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    padding: 0px;  
+  } 
+  #titolo_macbookair {
+    font-size: 40px;
+    margin-left: 0px;
+    margin-top: -500px;
+  }
+  #sec_titolo_macbookair {
+    font-size: 20px;
+    color: black;
+    margin-left: 0;
+    text-align: center;
+  }
+  #titolo_ipadair {
+    font-size: 40px;
+    margin-left: -90px;
+    margin-top: -520px;
+  }
+  #sec_titolo_ipadair {
+    font-size: 20px;
+    color: black;
+    margin-top: 10px;
+    margin-left: -30px;
+    text-align: center;
+  }
+  .button-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: -30px;
+  }
+  
+  /* LEARN MORE E BUY*/
+  .button1, .button2 {
+    background-color: rgb(14, 171, 223);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 40px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .button1:hover, .button2:hover {
+    background-color: #165463;
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+   /*SCROLL*/
+   .scroller-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .scroller-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+  }
+  
+  .scroller-track img {
+    height: 250px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% + 100vw)); } 
+  } 
+  /* FOOTER */
+  footer {
+    background-color: #f4f4f7;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+  }
+  
+/* STILE DELLA NOTIFICA */
+.highlight {
+    color: #fff !important;
+    text-decoration: underline !important;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: rgba(0,0,0,0.9);
+    padding: 20px;
+  }
+  
+  .search-bar {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    padding: 10px;
+    z-index: 100;
+  }
+  
+  .search-bar input {
+    padding: 8px;
+    width: 200px;
+  }
+  
+  .close-search {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .product-info {
+    background: rgba(255,255,255,0.9);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .cart-popup {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+  
+  .notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
+  .has-items::after {
+    content: attr(data-items);
+    position: absolute;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -5px;
+    right: -5px;
+  }
+
+
+ /* FOOTER */
+footer {
+  background-color: #f5f5f7;
+  padding: 15px 0;
+  text-align: center;
+  border-top: 1px solid #d2d2d7;
+}
+
+/* CONTENITORE PRINCIPALE */
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; 
+}
+
+/* PULSANTE MORE DETAILS */
+.footer-button {
+  background: none;
+  border: none;
+  color: #06c;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+/* DETTAGLI NASCOSTI */
+.footer-details-hidden {
+  display: none;
+  margin-top: 10px;
+}
+
+.footer-details-visible {
+  display: block;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+#footer-details a {
+  margin: 0 15px;
+  padding: 5px 0; 
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+  /* Design responsivo */
+  @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+  
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+  
+    .apple-logo {
+        position: relative;
+        margin: 10px 0;
+        height: auto;
+        width: 3vw;
+        max-width: 30px;
+    }
+  
+    .icona_ricerca {
+        position: static;
+        margin-left: 500px;
+        margin-top: -40;
+    }
+    
+    .icona_bag {
+      position: static;
+      margin: 10px 505;
+    }
+  
+    .section {
+        flex-direction: column;
+        padding: 180px;
+        height: auto;
+    }
+  
+    #titolo_16pro, #titolo_16 {
+      font-size: 36px;
+      margin-bottom: 40;
+    }
+    
+    #titolo_airpods {
+        font-size: 36px;
+    }
+  
+    #sec_titolo_16pro, #sec_titolo_16 {
+      font-size: 18px;
+      margin-bottom: 40px;
+      margin-top: 160px;
+    }
+    
+    #sec_titolo_airpods {
+        font-size: 18px;
+        margin-bottom: 40px;
+        margin-top: 30px;
+    }
+  
+    .products-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+  
+    .product-card {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+  
+    #titolo_macbookair, #titolo_ipadair {
+        font-size: 30px;
+        margin-left: 0;
+        margin-top: 0;
+        text-align: center;
+    }
+  
+    #sec_titolo_macbookair, #sec_titolo_ipadair {
+        font-size: 16px;
+        margin-left: 0;
+        text-align: center;
+    }
+  
+    .products-section .button2 {
+        margin-left: 0;
+        width: auto;
+        text-align: center;
+    }
+    
+    footer {
+        font-size: 12px;
+        padding: 10px 0;
+    }
+  }
